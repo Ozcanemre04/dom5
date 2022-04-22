@@ -57,7 +57,7 @@ if(event.code ==='Space'){
 
 
 
-function removeAllLi(parent) {
+function removeAll(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
@@ -69,13 +69,17 @@ body.addEventListener('keyup', e =>{
      
 let ulli = document.querySelector('ul')
     
-     removeAllLi(ulli)
+     removeAll(ulli)
     
   }
 })
 
 
-
+body.addEventListener('keyup', event =>{
+  if(event.key === "s"){
+    removeAll(section1)
+  }
+})
 
 
 
