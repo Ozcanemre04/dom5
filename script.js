@@ -11,17 +11,17 @@ const _initTime = Date.now()
 const getElapsedTime = () => {
   return Number((Date.now() - _initTime) / 1000).toFixed(2) + 's'
 }
-
+/*1*/
 const clickOnSquare = (e) => {
   let name = e.target.classList[1];
-
+ 
   
   let newDiv = document.createElement('div');
   section1.appendChild(newDiv);
   newDiv.className='displayedsquare';
-  newDiv.classList.add(name)
- newDiv.style.display ="inline-block"
-  newDiv.style.backgroundColor = name;
+  
+  
+  newDiv.style.backgroundColor = e.target.classList[1];
   let ul = document.querySelector('ul')
   let li = document.createElement('li');
   ul.appendChild(li);
@@ -32,9 +32,9 @@ const actionSquares = document.querySelectorAll('.actionsquare')
 for (let actionSquare of actionSquares) {
   actionSquare.addEventListener('click', clickOnSquare)
 }
+/*2*/ 
 
 let body = document.querySelector('body')
-
 function generateRandomColorRgb() {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
@@ -55,7 +55,7 @@ if(event.code ==='Space'){
 })
 
 
-
+/*3*/
 
 function removeAll(parent) {
   while (parent.firstChild) {
@@ -64,7 +64,7 @@ function removeAll(parent) {
 }
 
 
-body.addEventListener('keyup', e =>{
+body.addEventListener('keyup', (e) =>{
   if(e.key === "l"){
      
 let ulli = document.querySelector('ul')
@@ -75,11 +75,28 @@ let ulli = document.querySelector('ul')
 })
 
 
-body.addEventListener('keyup', event =>{
-  if(event.key === "s"){
+body.addEventListener('keyup', (e) =>{
+  if(e.key === "s"){
     removeAll(section1)
   }
 })
+
+/*4*/
+const displayedsquares = document.querySelectorAll('.displayedsquare-wrapper');
+
+
+function allert(e){
+  if(e.target.classList.contains('displayedsquare')){
+    alert(e.target.style.backgroundColor)
+  }
+}
+for(let elem of displayedsquares){
+elem.addEventListener('click',allert)
+}
+
+
+
+
 
 
 
