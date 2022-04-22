@@ -18,9 +18,6 @@ const clickOnSquare = (e) => {
   
   let newDiv = document.createElement('div');
   section1.appendChild(newDiv);
-  
-  
- 
   newDiv.className='displayedsquare';
   newDiv.classList.add(name)
  newDiv.style.display ="inline-block"
@@ -58,9 +55,27 @@ if(event.code ==='Space'){
 })
 
 
-ul.addEventListener("keyup"){
-  ul.remove
+
+
+function removeAllLi(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
+
+
+body.addEventListener('keyup', e =>{
+  if(e.key === "l"){
+     
+let ulli = document.querySelector('ul')
+    
+     removeAllLi(ulli)
+    
+  }
+})
+
+
+
 
 
 
