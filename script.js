@@ -13,19 +13,22 @@ const getElapsedTime = () => {
 }
 /*1*/
 const clickOnSquare = (e) => {
-  let name = e.target.classList[1];
- 
-  
   let newDiv = document.createElement('div');
   section1.appendChild(newDiv);
   newDiv.className='displayedsquare';
-  
-  
-  newDiv.style.backgroundColor = e.target.classList[1];
+  let name = e.target.classList[1];
   let ul = document.querySelector('ul')
   let li = document.createElement('li');
-  ul.appendChild(li);
-  li.innerHTML= getElapsedTime() + " created a new " + name + " square" 
+    ul.appendChild(li)
+  li.innerHTML= `${getElapsedTime()} created a new ${name} square` ;
+  
+  if(e.target.classList.contains('violet')) return newDiv.style.backgroundColor = 'magenta';
+  
+ if(e.target.classList.contains('orange')) return newDiv.style.backgroundColor = 'orange';
+  
+  if(e.target.classList.contains('green')) return newDiv.style.backgroundColor = 'lime';
+  
+  
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')
@@ -43,7 +46,7 @@ function generateRandomColorRgb() {
 }
 
 
-body.addEventListener('keyup',event =>{
+body.addEventListener('keyup',(event) =>{
 if(event.code ==='Space'){
   body.style.backgroundColor=generateRandomColorRgb();
   let log = event.target.style.backgroundColor;
@@ -64,10 +67,10 @@ function removeAll(parent) {
 }
 
 
-body.addEventListener('keyup', (e) =>{
+body.addEventListener('keyup',(e) =>{
   if(e.key === "l"){
      
-let ulli = document.querySelector('ul')
+     let ulli = document.querySelector('ul')
     
      removeAll(ulli)
     
